@@ -4,7 +4,8 @@
   "description": "SMTPExpress Javascript SDK. Use in your javascript projects to interface with the smptexpress api. Website: https://smtpexpress.com",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepublish": "npm run build"
   },
   "keywords": [],
   "author": "Tenotea (https://github.com/tenotea)",

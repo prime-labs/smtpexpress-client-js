@@ -1,7 +1,7 @@
-import { sendAPI } from "../apis/send-api";
-import { createClient } from "../helpers/client";
-import { HttpService } from "../helpers/http-service";
-import { CredentialOptions } from "../helpers/types";
+import { sendAPI } from "./apis/send-api";
+import { createClient } from "./helpers/client";
+import { HttpService } from "./helpers/http-service";
+import { CredentialOptions } from "./helpers/types";
 
 let PROJECT_ID = "";
 let PROJECT_SECRET = "";
