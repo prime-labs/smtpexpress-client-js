@@ -1,0 +1,6 @@
+*.tsbuildinfo
+*.js
+*.d.ts
+*.map
+node_modules
+dist

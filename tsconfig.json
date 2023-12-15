@@ -1,0 +1,14 @@
+{
+  "include": ["src/index.ts", "helpers/*", "apis/*"],
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "ES2015",
+    "declaration": true,
+    "declarationMap": true,
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true
+  },
+}
