@@ -12,5 +12,5 @@ export function createClient(credentials: CredentialOptions) {
     },
   });
 
-  return { sendAPI: sendAPI(httpService) };
+  return { sendApi: sendAPI(httpService) };
 }

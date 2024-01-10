@@ -2,3 +2,4 @@ src
 .gitignore
 tsconfig.tsbuildinfo
 package-lock.json
+tsconfig.json
