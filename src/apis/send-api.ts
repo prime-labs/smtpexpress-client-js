@@ -62,6 +62,8 @@ export function sendAPI(httpService: HttpService) {
     async sendMail(options: SendMailOptions) {
       const { data, error } = await httpService.SendRequest<{
         message: string;
+        statusCode: number;
+        data: { ref: string };
       }>({
         method: "post",
         path: "/send",
@@ -72,11 +74,6 @@ export function sendAPI(httpService: HttpService) {
         console.error(error);
         throw error;
       }
-
-      if (data) {
-        console.log(data);
-      }
-
       return data;
     },
   };
