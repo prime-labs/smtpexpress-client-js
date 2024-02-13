@@ -16,9 +16,7 @@ export class HttpService {
     });
   }
 
-  async resolver<T>(
-    fn: Promise<AxiosResponse>
-  ): Promise<HttpClientResolverDTO<T>> {
+  async resolver<T>(fn: Promise<AxiosResponse>) {
     let data: T | null = null;
     let error: null | HttpClientResolverError = null;
 
