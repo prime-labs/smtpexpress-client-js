@@ -16,10 +16,10 @@ export type HttpClientResolverError = {
   statusCode: number;
 };
 
-export type HttpClientResolverDTO<T> = Promise<{
+export type HttpClientResolverDTO<T> = {
   data: T | null;
   error: HttpClientResolverError | null;
-}>;
+};
 
 export type CredentialOptions = {
   projectSecret: string;

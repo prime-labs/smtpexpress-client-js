@@ -7,8 +7,10 @@
     "declarationMap": true,
     "composite": true,
     "skipLibCheck": true,
-    "module": "ESNext",
-    "moduleResolution": "bundler",
+    // "module": "CommonJS",
+    // "moduleResolution": "Node",
+    "module": "AMD",
+    "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true
   },
 }
