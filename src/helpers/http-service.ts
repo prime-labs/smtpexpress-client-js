@@ -12,7 +12,8 @@ export class HttpService {
   constructor(params: HttpClientConstructorParams) {
     this.axiosInstance = axios.create({
       ...params,
-      baseURL: "https://api.smtpexpress.com",
+      // baseURL: "https://api.smtpexpress.com",
+      baseURL: "http://localhost:4015",
     });
   }
 

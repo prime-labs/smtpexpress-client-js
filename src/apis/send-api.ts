@@ -4,6 +4,7 @@ import { MailRecipient, SendMailOptions } from "../helpers/types";
 export function sendAPI(httpService: HttpService) {
   function getFormBody(options: SendMailOptions) {
     const files = [];
+
     if (options.attachments) {
       options.attachments.forEach((attachment) => {
         if (attachment instanceof File) files.push(attachment);
@@ -13,9 +14,10 @@ export function sendAPI(httpService: HttpService) {
     if (files.length === 0) return options;
 
     const formData = new FormData();
-    options.attachments.forEach((attachment, index) => {
-      formData.append(`attachments[${index}]`, attachment as Blob);
+    options.attachments.forEach((attachment) => {
+      formData.append(`attachments`, attachment as Blob);
     });
+
     formData.append("subject", options.subject);
     formData.append("sender[name]", options.sender.name);
     formData.append("sender[email]", options.sender.email);
@@ -37,7 +39,7 @@ export function sendAPI(httpService: HttpService) {
     } else {
       appendRecipientToFormData([options.recipients]);
     }
-    formData.append("message", options.message);
+
     if (options.template) {
       formData.append("template[id]", options.template.id);
       Object.keys(options.template.variables).forEach((variable) => {
@@ -46,6 +48,8 @@ export function sendAPI(httpService: HttpService) {
           options.template.variables[variable]
         );
       });
+    } else {
+      formData.append("message", options.message);
     }
 
     if (options.calendarEvent) {
@@ -56,6 +60,8 @@ export function sendAPI(httpService: HttpService) {
         );
       });
     }
+
+    return formData;
   }
 
   return {
@@ -71,7 +77,6 @@ export function sendAPI(httpService: HttpService) {
       });
 
       if (error) {
-        console.error(error);
         throw error;
       }
       return data;
