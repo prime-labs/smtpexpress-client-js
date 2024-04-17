@@ -2,7 +2,6 @@ import axios, { AxiosInstance, AxiosResponse } from "axios";
 import {
   HttpClientConstructorParams,
   HttpClientParams,
-  HttpClientResolverDTO,
   HttpClientResolverError,
 } from "./types";
 
@@ -12,8 +11,7 @@ export class HttpService {
   constructor(params: HttpClientConstructorParams) {
     this.axiosInstance = axios.create({
       ...params,
-      // baseURL: "https://api.smtpexpress.com",
-      baseURL: "http://localhost:4015",
+      baseURL: "https://api.smtpexpress.com",
     });
   }
 
