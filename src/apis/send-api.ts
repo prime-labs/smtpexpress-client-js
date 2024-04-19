@@ -1,4 +1,5 @@
 import { HttpService } from "../helpers/http-service";
+import { isFile } from "../helpers/isFile";
 import { MailRecipient, SendMailOptions } from "../helpers/types";
 
 export function sendAPI(httpService: HttpService) {
@@ -7,7 +8,7 @@ export function sendAPI(httpService: HttpService) {
 
     if (options.attachments) {
       options.attachments.forEach((attachment) => {
-        if (attachment instanceof File) files.push(attachment);
+        if (isFile(attachment)) files.push(attachment);
       });
     }
 
