@@ -1,16 +1,26 @@
 import { HttpService } from "../helpers/http-service";
-import { isFile } from "../helpers/isFile";
 import { MailRecipient, SendMailOptions } from "../helpers/types";
 
 export function sendAPI(httpService: HttpService) {
   function getFormBody(options: SendMailOptions) {
+    console.log(options);
     const files = [];
 
     if (options.attachments) {
       options.attachments.forEach((attachment) => {
-        if (isFile(attachment)) files.push(attachment);
+        const template_properties = Object.getOwnPropertyNames(attachment);
+
+        if (
+          typeof attachment !== "string" ||
+          (!template_properties.includes("id") &&
+            !template_properties.includes("variable"))
+        ) {
+          files.push(attachment);
+        }
       });
     }
+
+    console.log(files);
 
     if (files.length === 0) return options;
 
