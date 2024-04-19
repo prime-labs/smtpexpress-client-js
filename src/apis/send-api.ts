@@ -3,7 +3,6 @@ import { MailRecipient, SendMailOptions } from "../helpers/types";
 
 export function sendAPI(httpService: HttpService) {
   function getFormBody(options: SendMailOptions) {
-    console.log(options);
     const files = [];
 
     if (options.attachments) {
@@ -19,8 +18,6 @@ export function sendAPI(httpService: HttpService) {
         }
       });
     }
-
-    console.log(files);
 
     if (files.length === 0) return options;
 
