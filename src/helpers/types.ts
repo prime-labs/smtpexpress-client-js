@@ -64,6 +64,7 @@ type TSendMailOptions = {
   recipients: string | string[] | MailRecipient | MailRecipient[];
   message?: string;
   template?: MailTemplate;
+  responseAddress?: string | MailRecipient;
   attachments?: Array<MailAttachment>;
   calendarEvent?: CalendarEventOptions;
 };

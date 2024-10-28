@@ -69,6 +69,19 @@ export function sendAPI(httpService: HttpService) {
       });
     }
 
+    if (options.responseAddress) {
+      if (typeof options.responseAddress === "string") {
+        formData.append(`responseAddress[name]`, "");
+        formData.append(`responseAddress[email]`, options.responseAddress);
+      } else {
+        formData.append(`responseAddress[name]`, options.responseAddress.name);
+        formData.append(
+          `responseAddress[email]`,
+          options.responseAddress.email
+        );
+      }
+    }
+
     return formData;
   }
 
